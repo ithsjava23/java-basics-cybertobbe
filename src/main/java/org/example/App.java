@@ -23,7 +23,7 @@ public class App {
             System.out.print("4. Bästa Laddningstid (4h)\n");
             System.out.print("e. Avsluta\n");
 
-            System.out.printf("Välj meny: \n");
+            System.out.print("Välj meny: \n");
             menuChoise = sc.nextLine();
 
             switch (menuChoise){
