@@ -40,6 +40,7 @@ public class App {
                     break;
                 case "2":
                     //ToDO Print low, hi price and time. Calc mean
+
                     break;
                 case "3":
                     break;
@@ -59,8 +60,8 @@ public class App {
                 Elpriser
                 ========
                 1. Inmatning
-                2. Min, Max, Medel
-                3. Sortering
+                2. Min, Max och Medel
+                3. Sortera
                 4. Bästa Laddningstid (4h)
                 e. Avsluta
                 """;
@@ -79,5 +80,7 @@ public class App {
 
 
     }
+
+
 
 }
