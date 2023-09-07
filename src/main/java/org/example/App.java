@@ -1,5 +1,6 @@
 package org.example;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class App {
@@ -40,7 +41,7 @@ public class App {
                     break;
                 case "2":
                     //ToDO Print low, hi price and time. Calc mean
-
+                    findMaxMin(energyPrices, timeArray);
                     break;
                 case "3":
                     break;
@@ -79,6 +80,56 @@ public class App {
         }
 
 
+    }
+
+    public static void findMaxMin(int arrayPrice[], String arrayTime[]){
+
+        //Find min price and calculate mean price
+        double mean = 0;
+        int min = arrayPrice[0];
+        int indexMin = 0;
+        for(int i = 0; i<arrayPrice.length; i++){
+
+            mean = mean + arrayPrice[i];
+
+            if(arrayPrice[i] < min){
+                min = arrayPrice[i];
+                indexMin = i;
+
+                //ToDo FÅ ut tidsindervall ur arrayTime
+
+
+            }
+        }
+        mean = (mean/24);
+
+        //Find max price
+        int max = arrayPrice[0];
+        int indexMax = 0;
+        for(int i = 0; i<arrayPrice.length; i++){
+
+            if(arrayPrice[i] > max){
+                max = arrayPrice[i];
+                indexMax = i;
+            }
+        }
+
+        String timeMin = arrayTime[indexMin];
+        String timeMax = arrayTime[indexMax];
+        //System.out.print("Lägsta pris: " + timeMin + ", " + min + " öre/kwh" + "\n");
+        //System.out.print("Högsta pris: " + timeMax + ", " + max + " öre/kwh" + "\n");
+
+        //DecimalFormat df = new DecimalFormat("#.##");
+        //System.out.print("Medelpriset: "  + df.format(mean) + "öre/kWh" + "\n");
+
+        String response = """
+                Lägsta pris: %s, %d öre/kWh
+                Högsta pris: %s, %d öre/kWh
+                Medelpris: %.2f öre/kWh
+                """;
+        String MinMaxMean = String.format(response, timeMin, min, timeMax, max, mean);
+
+        System.out.println(MinMaxMean);
     }
 
 
