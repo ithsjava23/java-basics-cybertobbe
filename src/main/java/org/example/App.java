@@ -40,7 +40,7 @@ public class App {
                     }
                     break;
                 case "2":
-                    //ToDO Print low, hi price and time. Calc mean
+
                     findMaxMin(energyPrices, timeArray);
                     break;
                 case "3":
