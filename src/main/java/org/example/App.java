@@ -96,7 +96,7 @@ public class App {
                 min = arrayPrice[i];
                 indexMin = i;
 
-                //ToDo FÅ ut tidsindervall ur arrayTime
+
 
 
             }
