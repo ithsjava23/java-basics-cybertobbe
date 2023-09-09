@@ -1,11 +1,13 @@
 package org.example;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
-
+        Locale swedishLocale = new Locale("sv", "SE");
+        Locale.setDefault(swedishLocale);
 
         //Scanner obj for the whole program
         Scanner scanner = new Scanner(System.in);
