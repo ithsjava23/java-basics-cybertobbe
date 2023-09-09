@@ -1,9 +1,5 @@
 package org.example;
 
-import java.util.Arrays;
-
-
-import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
@@ -31,15 +27,23 @@ public class App {
             menuChoise = scanner.nextLine();
 
             switch (menuChoise) {
-                case "1" -> {
+                case "1":
                     addEnergyPrices(scanner, energyPrices, energyPricesCopied);
                     for (int i = 0; i < energyPrices.length; i++) {
                         System.out.println(timeArray[i] + "\t" + energyPrices[i] + " öre/kWh" + "\n");
                     }
-                }
-                case "2" -> findMaxMin(energyPrices, timeArray);
-                case "3" -> sortingPrices(energyPrices, timeArray);
-                case "4" -> cheapestFourHours(energyPricesCopied, timeArray);
+                    break;
+                case "2":
+                    findMaxMin(energyPrices, timeArray);
+                    break;
+                case "3":
+                    sortingPrices(energyPrices, timeArray);
+                    break;
+                case "4":
+                    cheapestFourHours(energyPricesCopied, timeArray);
+                    break;
+
+
             }
 
         } while (!"e".equals(menuChoise) && !"E".equals(menuChoise));
@@ -61,7 +65,7 @@ public class App {
 
     }
 
-    public static void addEnergyPrices(Scanner scanner, int [] energyPrices, int [] energyPricesCopied) {
+    public static void addEnergyPrices(Scanner scanner, int energyPrices[], int energyPricesCopied[]) {
 
         for (int i = 0; i < energyPrices.length; i++) {
             System.out.print("Ange elpris: \n");
@@ -147,38 +151,29 @@ public class App {
     }
 
     public static void cheapestFourHours(int[] energyPricesCopied, String[] timeArray){
-        /*double energyPriceOverFourHours =  Double.MAX_VALUE;
-        String startHour = "";
-        double fourHourMeanPrice;
 
-        for(int i = 0; i<energyPricesCopied.length-4; i++){
-            if(energyPriceOverFourHours > (energyPricesCopied[i] + energyPricesCopied[i+1] + energyPricesCopied[i+2] + energyPricesCopied[i+3])){
-                energyPriceOverFourHours = (energyPricesCopied[i] + energyPricesCopied[i+1] + energyPricesCopied[i+2] + energyPricesCopied[i+3]);
-
-            }
-
-            startHour = timeArray[i].substring(0,2);
-
-        }
-
-        fourHourMeanPrice = energyPriceOverFourHours/4;
-
-        String response = """
-                Påbörja Laddning klockan %s
-                Medelpris 4h: %.1f öre/KWh
-                """;
-        String cheapestTime = String.format(response, startHour, fourHourMeanPrice);
-        System.out.print("\n" + cheapestTime);*/
 
         float fourHourMeanPrice = energyPricesCopied[0] + energyPricesCopied[1] + energyPricesCopied[2] + energyPricesCopied[3];
-        String startPoint = timeArray[0];
-        for (int i = 1; i < timeArray.length - 3; i++) {
+        String startTimeCharging = timeArray[0];
+        for (int i = 0; i < timeArray.length - 4; i++) {
             if (fourHourMeanPrice > (energyPricesCopied[i] + energyPricesCopied[i + 1] + energyPricesCopied[i + 2] + energyPricesCopied[i + 3])) {
                 fourHourMeanPrice = (energyPricesCopied[i] + energyPricesCopied[i + 1] + energyPricesCopied[i + 2] + energyPricesCopied[i + 3]);
-                startPoint = timeArray[i];
+                startTimeCharging = timeArray[i];
             }
         }
-        String[] print = startPoint.split("-");
-        System.out.printf(Locale.getDefault(),"Påbörja laddning klockan %s\nMedelpris 4h: %.1f öre/kWh\n",print[0], (fourHourMeanPrice / 4));
+
+        //Show only first hour in time interval. IE, only 01 in 01-02 string
+        startTimeCharging = startTimeCharging.substring(0,2);
+        //Calculate 4 hour mean price
+        fourHourMeanPrice /= 4;
+
+        //Print time and price
+        String response = """
+                Påbörja laddning klockan %s
+                Medelpris 4h: %.1f öre/kWh
+                """;
+        String f = String.format(response, startTimeCharging, fourHourMeanPrice);
+        System.out.print("\n");
+        System.out.print(f);
     }
 }
