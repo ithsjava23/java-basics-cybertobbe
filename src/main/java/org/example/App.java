@@ -50,6 +50,7 @@ public class App {
 
     }
 
+    //Method to show menu
     public static void showMenu() {
 
         String appMenu = """
@@ -65,7 +66,8 @@ public class App {
 
     }
 
-    public static void addEnergyPrices(Scanner scanner, int energyPrices[], int energyPricesCopied[]) {
+    //add Energyprices for the days hours.
+    public static void addEnergyPrices(Scanner scanner, int [] energyPrices, int [] energyPricesCopied) {
 
         for (int i = 0; i < energyPrices.length; i++) {
             System.out.print("Ange elpris: \n");
@@ -78,6 +80,7 @@ public class App {
 
     }
 
+    //Meyhod for finding min, max and calculate mean
     public static void findMaxMin(int[] arrayPrice, String[] arrayTime) {
 
         //Find min price and calculate mean price
@@ -126,6 +129,7 @@ public class App {
         System.out.println(MinMaxMean);
     }
 
+    //Bubblesort method
     public static void sortingPrices(int[] arrPrice, String[] timeArray){
         int tempPrice;
         String tempString;
@@ -150,6 +154,7 @@ public class App {
         }
     }
 
+    //Method finding the cheapest four hours and best time to start charging
     public static void cheapestFourHours(int[] energyPricesCopied, String[] timeArray){
 
 
