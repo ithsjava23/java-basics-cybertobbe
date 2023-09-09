@@ -31,23 +31,15 @@ public class App {
             menuChoise = scanner.nextLine();
 
             switch (menuChoise) {
-                case "1":
+                case "1" -> {
                     addEnergyPrices(scanner, energyPrices, energyPricesCopied);
                     for (int i = 0; i < energyPrices.length; i++) {
                         System.out.println(timeArray[i] + "\t" + energyPrices[i] + " öre/kWh" + "\n");
                     }
-                    break;
-                case "2":
-                    findMaxMin(energyPrices, timeArray);
-                    break;
-                case "3":
-                    sortingPrices(energyPrices, timeArray);
-                    break;
-                case "4":
-                    cheapestFourHours(energyPricesCopied, timeArray);
-                    break;
-
-
+                }
+                case "2" -> findMaxMin(energyPrices, timeArray);
+                case "3" -> sortingPrices(energyPrices, timeArray);
+                case "4" -> cheapestFourHours(energyPricesCopied, timeArray);
             }
 
         } while (!"e".equals(menuChoise) && !"E".equals(menuChoise));
@@ -69,7 +61,7 @@ public class App {
 
     }
 
-    public static void addEnergyPrices(Scanner scanner, int energyPrices[], int energyPricesCopied[]) {
+    public static void addEnergyPrices(Scanner scanner, int [] energyPrices, int [] energyPricesCopied) {
 
         for (int i = 0; i < energyPrices.length; i++) {
             System.out.print("Ange elpris: \n");
