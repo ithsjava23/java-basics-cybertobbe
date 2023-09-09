@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
 
 
-
+        //Scanner obj for the whole program
         Scanner scanner = new Scanner(System.in);
         String menuChoise = "";
 
@@ -66,7 +66,7 @@ public class App {
 
     }
 
-    //add Energyprices for the days hours.
+    //add Energy-prices for the days hours.
     public static void addEnergyPrices(Scanner scanner, int [] energyPrices, int [] energyPricesCopied) {
 
         for (int i = 0; i < energyPrices.length; i++) {
@@ -80,7 +80,7 @@ public class App {
 
     }
 
-    //Meyhod for finding min, max and calculate mean
+    //Method for finding min, max and calculate mean
     public static void findMaxMin(int[] arrayPrice, String[] arrayTime) {
 
         //Find min price and calculate mean price
@@ -113,11 +113,6 @@ public class App {
 
         String timeMin = arrayTime[indexMin];
         String timeMax = arrayTime[indexMax];
-        //System.out.print("Lägsta pris: " + timeMin + ", " + min + " öre/kwh" + "\n");
-        //System.out.print("Högsta pris: " + timeMax + ", " + max + " öre/kwh" + "\n");
-
-        //DecimalFormat df = new DecimalFormat("#.##");
-        //System.out.print("Medelpriset: "  + df.format(mean) + "öre/kWh" + "\n");
 
         String response = """
                 Lägsta pris: %s, %d öre/kWh
@@ -129,7 +124,7 @@ public class App {
         System.out.println(MinMaxMean);
     }
 
-    //Bubblesort method
+    //Bubble-sort method
     public static void sortingPrices(int[] arrPrice, String[] timeArray){
         int tempPrice;
         String tempString;
@@ -154,7 +149,7 @@ public class App {
         }
     }
 
-    //Method finding the cheapest four hours and best time to start charging
+    //Method finding the cheapest four hours and best time to start charging by passing the copied unsorted array of prices.
     public static void cheapestFourHours(int[] energyPricesCopied, String[] timeArray){
 
 
