@@ -77,7 +77,7 @@ public class App {
             energyPrices[i] = price;
 
         }
-        //Copy a unsorted array of energyPrices.
+        //Copy an unsorted array of energyPrices.
         System.arraycopy(energyPrices,0,energyPricesCopied,0,energyPrices.length);
 
     }
